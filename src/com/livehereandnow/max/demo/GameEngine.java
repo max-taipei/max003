@@ -368,6 +368,10 @@ public class GameEngine {
     public void doVersion() {
 
         System.out.println();
+        System.out.println("  === ver 0.11 ===  2014-4-17, 11:34, by MAX　");
+        System.out.println("    1. 建立科技陣列框架(特殊科技除外)，並在TestPlayer測試執行可用");
+        System.out.println();
+        
         System.out.println("  === ver 0.10 ===  2014-4-17, 11:08, by MAX　");
         System.out.println("    1. 建立資源陣列框架，並在TestPlayer測試執行可用");
         System.out.println();
