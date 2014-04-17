@@ -60,56 +60,94 @@ public class Player {
 // === 需求分析 ===
 //    農業我們需要有四個物件
 //    每個物件要能記錄黃點、藍點、是否拿取、是否打出
-
-
-
 //   public void get農業黃點[x](int 農業黃點) 
 //   public void set農業黃點[x](int 農業黃點)
-   
 //   public void get農業藍點[x](int 農業藍點) 
 //   public void set農業藍點[x](int 農業藍點) 
-    
 //   public void get拿取農業科技[x](boolean 拿取農業科技) 
 //   public void set拿取農業科技[x](boolean 拿取農業科技)
-    
 //   public void get打出農業科技[x](boolean 打出農業科技) 
 //   public void set打出農業科技[x](boolean 打出農業科技)
-    
 //    private int[] 農業=new int[4];//存放黃點數量
 //    private boolean[] 打出農業科技=new boolean[4];//記錄科技是否已經啟用
 ////    private boolean[] 打出農業科技=new boolean[4];//記錄科技是否已經啟用
     Agriculture[] 農業 = new Agriculture[4];
-     Agriculture[] 礦場 = new Agriculture[4];//礦業的需求與農業相同，
+    Agriculture[] 礦場 = new Agriculture[4];//礦業的需求與農業相同，
+    Agriculture[] 神廟 = new Agriculture[4];
+    Agriculture[] 實驗室 = new Agriculture[4];
+    Agriculture[] 戰士 = new Agriculture[4];
+    Agriculture[] 騎兵 = new Agriculture[4];
+    Agriculture[] 砲兵 = new Agriculture[4];
+    Agriculture[] 飛機 = new Agriculture[4];
+    Agriculture[] 競技場 = new Agriculture[4];
+    Agriculture[] 劇院 = new Agriculture[4];
+    Agriculture[] 圖書館 = new Agriculture[4];
+
     public Agriculture get農業(int k) {
         return 農業[k];
     }
-public Agriculture get礦場(int k) {
+
+    public Agriculture get礦場(int k) {
         return 礦場[k];
+    }
+
+    public Agriculture get神廟(int k) {
+        return 神廟[k];
+    }
+
+    public Agriculture get實驗室(int k) {
+        return 實驗室[k];
+    }
+
+    public Agriculture get戰士(int k) {
+        return 戰士[k];
+    }
+
+    public Agriculture get騎兵(int k) {
+        return 騎兵[k];
+    }
+
+    public Agriculture get砲兵(int k) {
+        return 砲兵[k];
+    }
+
+    public Agriculture get競技場(int k) {
+        return 競技場[k];
+    }
+
+    public Agriculture get飛機(int k) {
+        return 飛機[k];
+    }
+
+    public Agriculture get劇院(int k) {
+        return 劇院[k];
+    }
+
+    public Agriculture get圖書館(int k) {
+        return 圖書館[k];
     }
 
 //    public void set農業(Agriculture[] 農業) {
 //        this.農業 = 農業;
 //    }
-     
-    private int 神廟;
-    private int 實驗室;
-    private int 戰士;
-    private int 騎兵;
-    private int 砲兵;
-    private int 飛機;
-    private int 競技場;
-    private int 劇院;
-    private int 圖書館;
-    
+//    private int 神廟;
+//    private int 實驗室;
+//    private int 戰士;
+//    private int 騎兵;
+//    private int 砲兵;
+//    private int 飛機;
+//    private int 競技場;
+//    private int 劇院;
+//    private int 圖書館;
+
     private int 工人閒置區;
     private int 黃點工人供應區;
     private int 藍點資源供應區;
-    
+
 ////      === TODO ===  
 //    1, 在Player內設置I時代所有的科技牌位置
 //    2, 在Player內設置當前領袖位置.戰術牌位置.待建奇蹟位置.建好的奇蹟.值民地位置
 //    done, 目前第二個玩家有可能用兩個內政點數拿兩張時代A的領袖牌,應予以制止
-
     public int get內政點數() {
         return 內政點數;
     }
@@ -126,33 +164,6 @@ public Agriculture get礦場(int k) {
         this.軍事點數 = 軍事點數;
     }
 
-
-
- 
-
-    public int get神廟() {
-        return 神廟;
-    }
-
-    public void set神廟(int 神廟) {
-        this.神廟 = 神廟;
-    }
-
-    public int get實驗室() {
-        return 實驗室;
-    }
-
-    public void set實驗室(int 實驗室) {
-        this.實驗室 = 實驗室;
-    }
-
-    public int get戰士() {
-        return 戰士;
-    }
-
-    public void set戰士(int 戰士) {
-        this.戰士 = 戰士;
-    }
 
     public int get工人閒置區() {
         return 工人閒置區;
@@ -178,20 +189,77 @@ public Agriculture get礦場(int k) {
         this.藍點資源供應區 = 藍點資源供應區;
     }
 
-
-
     private List<Card> 手上的牌;
 
     public Player() {
-        
+
+        //    private int 神廟;
+//    private int 實驗室;
+//    private int 戰士;
+//    private int 騎兵;
+//    private int 砲兵;
+//    private int 飛機;
+//    private int 競技場;
+//    private int 劇院;
+//    private int 圖書館;
+        for(int k=0;k<4;k++){
+            農業[k] = new Agriculture(0, 0, false, false);
+            礦場[k] = new Agriculture(0, 0, false, false);
+            神廟[k] = new Agriculture(0, 0, false, false);
+            實驗室[k] = new Agriculture(0, 0, false, false);
+            戰士[k] = new Agriculture(0, 0, false, false);
+            騎兵[k] = new Agriculture(0, 0, false, false);
+            砲兵[k] = new Agriculture(0, 0, false, false);
+            飛機[k] = new Agriculture(0, 0, false, false);
+            競技場[k] = new Agriculture(0, 0, false, false);
+            劇院[k] = new Agriculture(0, 0, false, false);
+            圖書館[k] = new Agriculture(0, 0, false, false);
+            
+        }
         農業[0] = new Agriculture(2, 0, true, true);
-        農業[1] = new Agriculture(0, 0, false, false);
-        農業[2] = new Agriculture(0, 0, false, false);
-        農業[3] = new Agriculture(0, 0, false, false);
-   礦場[0] = new Agriculture(2, 0, true, true);
-        礦場[1] = new Agriculture(0, 0, false, false);
-        礦場[2] = new Agriculture(0, 0, false, false);
-        礦場[3] = new Agriculture(0, 0, false, false);
+//        農業[1] = new Agriculture(0, 0, false, false);
+//        農業[2] = new Agriculture(0, 0, false, false);
+//        農業[3] = new Agriculture(0, 0, false, false);
+        礦場[0] = new Agriculture(2, 0, true, true);
+//        礦場[1] = new Agriculture(0, 0, false, false);
+//        礦場[2] = new Agriculture(0, 0, false, false);
+//        礦場[3] = new Agriculture(0, 0, false, false);
+        神廟[0] = new Agriculture(0, 0, true, true);
+//        神廟[1] = new Agriculture(0, 0, false, false);
+//        神廟[2] = new Agriculture(0, 0, false, false);
+//        神廟[3] = new Agriculture(0, 0, false, false);
+        實驗室[0] = new Agriculture(1, 0, true, true);
+//        實驗室[1] = new Agriculture(0, 0, false, false);
+//        實驗室[2] = new Agriculture(0, 0, false, false);
+//        實驗室[3] = new Agriculture(0, 0, false, false);
+        戰士[0] = new Agriculture(1, 0, true, true);
+//        戰士[1] = new Agriculture(0, 0, false, false);
+//        戰士[2] = new Agriculture(0, 0, false, false);
+//        戰士[3] = new Agriculture(0, 0, false, false);
+//        騎兵[0] = new Agriculture(0, 0, false, false);
+//        騎兵[1] = new Agriculture(0, 0, false, false);
+//        騎兵[2] = new Agriculture(0, 0, false, false);
+//        騎兵[3] = new Agriculture(0, 0, false, false);
+//        砲兵[0] = new Agriculture(0, 0, false, false);
+//        砲兵[1] = new Agriculture(0, 0, false, false);
+//        砲兵[2] = new Agriculture(0, 0, false, false);
+//        砲兵[3] = new Agriculture(0, 0, false, false);
+//        飛機[0] = new Agriculture(0, 0, false, false);
+//        飛機[1] = new Agriculture(0, 0, false, false);
+//        飛機[2] = new Agriculture(0, 0, false, false);
+//        飛機[3] = new Agriculture(0, 0, false, false);
+//        競技場[0] = new Agriculture(0, 0, false, false);
+//        競技場[1] = new Agriculture(0, 0, false, false);
+//        競技場[2] = new Agriculture(0, 0, false, false);
+//        競技場[3] = new Agriculture(0, 0, false, false);
+//        劇院[0] = new Agriculture(0, 0, false, false);
+//        劇院[1] = new Agriculture(0, 0, false, false);
+//        劇院[2] = new Agriculture(0, 0, false, false);
+//        劇院[3] = new Agriculture(0, 0, false, false);
+//        圖書館[0] = new Agriculture(0, 0, false, false);
+//        圖書館[1] = new Agriculture(0, 0, false, false);
+//        圖書館[2] = new Agriculture(0, 0, false, false);
+//        圖書館[3] = new Agriculture(0, 0, false, false);
         文明 = 0;
         食物 = 0;
         資源 = 0;
@@ -203,6 +271,7 @@ public Agriculture get礦場(int k) {
         return 文明;
     }
 //實例 物件 對象
+
     public void set文明(int 文明) {
         this.文明 = 文明;
     }
@@ -215,7 +284,6 @@ public Agriculture get礦場(int k) {
 //        this.戰士 = 戰士;
 //        this.工人閒置區 = 工人閒置區;
 //    }
-
     public void set文明食物資源科技(int 文明, int 食物, int 資源, int 科技) {
         this.文明 = 文明;
         this.食物 = 食物;
@@ -259,7 +327,7 @@ public Agriculture get礦場(int k) {
     }
 
     public void show() {
-         System.out.print(" 手上的牌 " );
+        System.out.print(" 手上的牌 ");
         show手上的牌();
         /*this.工人閒置區 = 工人閒置區;
          this.農業 = 農業;
@@ -267,7 +335,7 @@ public Agriculture get礦場(int k) {
          this.神廟 = 神廟;
          this.實驗室 = 實驗室;
          this.戰士 = 戰士;*/
-        
+
 //        System.out.print("  農業=" + 農業);
         System.out.print("  礦場=" + 礦場);
         System.out.print("  神廟=" + 神廟);

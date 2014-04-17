@@ -31,10 +31,18 @@ public class GameEngine {
     private List<Card> player3Cards;
     private List<Card> player4Cards;
 
-    private Player p1;
-    private Player p2;
-    private Player p3;
-    private Player p4;
+    
+//    private　Player[] 玩家 = new Player[4];
+//        private　Player[] ccddd = new Player[4];
+private Player[] 玩家= new Player[4];
+
+    public Player get玩家(int k) {
+        return 玩家[k];
+    }
+//    private Player p1;
+//    private Player p2;
+//    private Player p3;
+//    private Player p4;
 
 //    boolean isPlayer1PossessedAgeALeader=false;
 //    boolean isPlayer2PossessedAgeALeader=false;
@@ -50,27 +58,27 @@ public class GameEngine {
         this.playerPossessedAgeALeader[k] = true;
     }
 
-    public Player getP1() {
-        return p1;
-    }
-
-    public Player getP2() {
-        return p2;
-    }
-
-    public Player getP3() {
-        return p3;
-    }
-
-    public Player getP4() {
-        return p4;
-    }
+//    public Player getP1() {
+//        return p1;
+//    }
+//
+//    public Player getP2() {
+//        return p2;
+//    }
+//
+//    public Player getP3() {
+//        return p3;
+//    }
+//
+//    public Player getP4() {
+//        return p4;
+//    }
 
     final Card NOCARD = new Card(999, "", 0, CardType.EMPTY);
 //    int playerm
 //    2014-4-16 max 10:32,使用refactor變更變量名稱
     int 當前玩家;
-    int 玩家人數 = 4;
+    int 玩家人數 = 2;
     int roundNum;
 
     public int getRoundNum() {
@@ -78,67 +86,68 @@ public class GameEngine {
     }
 
     public void do拿牌扣點(int 點數) {
-        if (當前玩家 == 1) {
-            p1.set內政點數(p1.get內政點數() - 點數);
-        }
-        if (當前玩家 == 2) {
-            p2.set內政點數(p2.get內政點數() - 點數);
-        }
-        if (當前玩家 == 3) {
-            p3.set內政點數(p3.get內政點數() - 點數);
-        }
-        if (當前玩家 == 4) {
-            p4.set內政點數(p4.get內政點數() - 點數);
-        }
+        
+//        if (當前玩家 == 1) {
+            玩家[當前玩家-1].set內政點數(玩家[當前玩家-1].get內政點數() - 點數);
+//        }
+//        if (當前玩家 == 2) {
+//            玩家[1].set內政點數(玩家[1].get內政點數() - 點數);
+//        }
+//        if (當前玩家 == 3) {
+//            p3.set內政點數(p3.get內政點數() - 點數);
+//        }
+//        if (當前玩家 == 4) {
+//            p4.set內政點數(p4.get內政點數() - 點數);
+//        }
 
     }
 
     public void set拿當前玩家拿過時代A領袖牌() {
-        if (當前玩家 == 1) {
-            p1.set拿過的時代A領袖牌數(1);
-        }
-        if (當前玩家 == 2) {
-            p2.set拿過的時代A領袖牌數(1);
-        }
+//        if (當前玩家 == 1) {
+            玩家[當前玩家-1].set拿過的時代A領袖牌數(1);
+//        }
+//        if (當前玩家 == 2) {
+//            p2.set拿過的時代A領袖牌數(1);
+//        }
 
     }
 
     public int get當前玩家內政點數() {
-        if (當前玩家 == 1) {
-            return p1.get內政點數();
-        }
-        if (當前玩家 == 2) {
-            return p2.get內政點數();
-        }
-
-        if (當前玩家 == 3) {
-            return p3.get內政點數();
-        }
-
-        if (當前玩家 == 4) {
-            return p4.get內政點數();
-        }
-
-        return -1;//不應該發生
+//        if (當前玩家 == 1) {
+            return 玩家[當前玩家-1].get內政點數();
+//        }
+//        if (當前玩家 == 2) {
+//            return p2.get內政點數();
+//        }
+//
+//        if (當前玩家 == 3) {
+//            return p3.get內政點數();
+//        }
+//
+//        if (當前玩家 == 4) {
+//            return p4.get內政點數();
+//        }
+//
+//        return -1;//不應該發生
     }
 
     public int get當前玩家拿過的時代A領袖牌數() {
-        if (當前玩家 == 1) {
-            return p1.get拿過的時代A領袖牌數();
-        }
-        if (當前玩家 == 2) {
-            return p2.get拿過的時代A領袖牌數();
-        }
+//        if (當前玩家 == 1) {
+            return 玩家[當前玩家-1].get拿過的時代A領袖牌數();
+//        }
+//        if (當前玩家 == 2) {
+//            return p2.get拿過的時代A領袖牌數();
+//        }
+//
+//        if (當前玩家 == 3) {
+//            return p3.get拿過的時代A領袖牌數();
+//        }
+//
+//        if (當前玩家 == 4) {
+//            return p4.get拿過的時代A領袖牌數();
+//        }
 
-        if (當前玩家 == 3) {
-            return p3.get拿過的時代A領袖牌數();
-        }
-
-        if (當前玩家 == 4) {
-            return p4.get拿過的時代A領袖牌數();
-        }
-
-        return -1;//不應該發生
+//        return -1;//不應該發生
     }
 
     public int get當前玩家() {
@@ -153,13 +162,13 @@ public class GameEngine {
         showCardRow();
         System.out.println();
         System.out.println("   === Round #" + roundNum + " ===");
-        System.out.println("   Player 1 內政點數=" + p1.get內政點數() + getPlayerCardsString(player1Cards));
-        System.out.println("   Player 2 內政點數=" + p2.get內政點數() + getPlayerCardsString(player2Cards));
+        System.out.println("   Player 1 內政點數=" + 玩家[0].get內政點數() + getPlayerCardsString(player1Cards));
+        System.out.println("   Player 2 內政點數=" + 玩家[1].get內政點數() + getPlayerCardsString(player2Cards));
         if (玩家人數 >= 3) {
-            System.out.println("   Player 3 內政點數=" + p3.get內政點數() + getPlayerCardsString(player3Cards));
+            System.out.println("   Player 3 內政點數=" + 玩家[2].get內政點數() + getPlayerCardsString(player3Cards));
         }
         if (玩家人數 == 4) {
-            System.out.println("   Player 4 內政點數=" + p4.get內政點數() + getPlayerCardsString(player4Cards));
+            System.out.println("   Player 4 內政點數=" + 玩家[3].get內政點數() + getPlayerCardsString(player4Cards));
         }
     }
 
@@ -199,10 +208,10 @@ public class GameEngine {
         if (當前玩家 == 玩家人數) {
             當前玩家 = 1;
             roundNum++;
-            p1.set內政點數(4);
-            p2.set內政點數(4);
-            p3.set內政點數(4);
-            p4.set內政點數(4);
+            玩家[0].set內政點數(4);
+            玩家[1].set內政點數(4);
+            玩家[2].set內政點數(4);
+            玩家[3].set內政點數(4);
 
         } else {
             當前玩家++;
@@ -212,18 +221,28 @@ public class GameEngine {
     }
 
     public GameEngine() {
-        p1 = new Player();
-        p2 = new Player();
-        p3 = new Player();
-        p4 = new Player();
+        玩家[0]=new Player();
+        玩家[1]=new Player();
+        玩家[2]=new Player();
+        玩家[3]=new Player();
+        
+//        p1 = 玩家[0];
+//        p2 = 玩家[1];
+//        p3 = 玩家[2];
+//        p4 = 玩家[3];
 
         當前玩家 = 1;
         roundNum = 1;
-        p1.set內政點數(1);
-        p2.set內政點數(2);
-        p3.set內政點數(3);
-        p4.set內政點數(4);
+//        p1.set內政點數(1);
+//        p2.set內政點數(2);
+//        p3.set內政點數(3);
+//        p4.set內政點數(4);
 
+        玩家[0].set內政點數(1);
+        玩家[1].set內政點數(2);
+        玩家[2].set內政點數(3);
+        玩家[3].set內政點數(4);
+        
         ageA內政牌 = new ArrayList<>();
         cardRow = new ArrayList<>();
         player1Cards = new ArrayList<>();
@@ -368,6 +387,9 @@ public class GameEngine {
     public void doVersion() {
 
         System.out.println();
+        System.out.println("  === ver 0.12 ===  2014-4-17, 11:58, by MAX　");
+        System.out.println("    1. Player 本來的p1~p4 改成陣列型態 大幅結構更動");
+        System.out.println();
         System.out.println("  === ver 0.11 ===  2014-4-17, 11:34, by MAX　");
         System.out.println("    1. 建立科技陣列框架(特殊科技除外)，並在TestPlayer測試執行可用");
         System.out.println();
@@ -439,7 +461,7 @@ public class GameEngine {
         System.out.println("  === 版本控制說明 ===");
         System.out.println("    1. ver X.Y.Z");
         System.out.println("    2. X最大版本,基本功能尚未完備前為0");
-        System.out.println("    3. Y中版本,任何和業務邏輯相關的新增移除功能,Y版本+1,只要Y的值增加,Z值歸0");
+        System.out.println("    3. Y中版本,任何和業務邏輯相關的新增移除功能,Y版本+1,只要Y的值增加,Z值歸0,當有重大結構性調整時仍然歸屬在Y版本");
         System.out.println("    4. Z最小版本,任何使用者介面的調整或增刪說明,與功能無關");
 
     }
